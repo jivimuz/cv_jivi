@@ -1,4 +1,4 @@
-export function ExperienceCount(startDate) {
+export function ExperienceCount(startDate: string) {
   const start = new Date(startDate);
   const now = new Date();
 
@@ -8,12 +8,9 @@ export function ExperienceCount(startDate) {
 
   if (days < 0) {
     months--;
-    days += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); // hitung jumlah hari di bulan lalu
   }
-
   if (months < 0) {
     years--;
-    months += 12;
   }
 
   return { years, months, days };

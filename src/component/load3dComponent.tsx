@@ -1,12 +1,19 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 function Load3dComponent() {
-  const mountRef = useRef(null);
+  const mountRef = useRef<HTMLDivElement>(null); // Explicitly type the ref
 
   useEffect(() => {
+    // --- GUARD CLAUSE ---
+    // If the ref is not linked to the div yet, do nothing.
+    if (!mountRef.current) {
+      return;
+    }
+
+    // Now TypeScript knows mountRef.current is an HTMLDivElement
     const currentMount = mountRef.current;
 
     // Scene
@@ -15,9 +22,9 @@ function Load3dComponent() {
     // Camera
     const camera = new THREE.PerspectiveCamera(
       75,
-      currentMount.clientWidth / currentMount.clientHeight,
+      currentMount.clientWidth / currentMount.clientHeight, // No more error here
       0.1,
-      100
+      1000 // Increased far plane for potentially larger models
     );
     camera.position.set(0, 0, 5);
 
@@ -27,19 +34,22 @@ function Load3dComponent() {
     currentMount.appendChild(renderer.domElement);
 
     // Lighting
-    const light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(5, 5, 5);
-    scene.add(light);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Softer ambient light
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
 
     // Controls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enablePan = false;
     controls.minDistance = 1.8;
     controls.maxDistance = 2.0;
-    controls.minPolarAngle = Math.PI / 2; // kunci sudut vertikal
+    controls.minPolarAngle = Math.PI / 2;
     controls.maxPolarAngle = Math.PI / 2;
-    controls.autoRotate = true; // aktifkan rotasi otomatis
-    controls.autoRotateSpeed = 1; // kecepatan rotasi
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1;
     controls.target.set(0, 0, 0);
 
     // Load OBJ
@@ -47,7 +57,7 @@ function Load3dComponent() {
     loader.load(
       "/assets/base.obj",
       (obj) => {
-        // Posisikan di tengah
+        // Center the object
         const box = new THREE.Box3().setFromObject(obj);
         const center = box.getCenter(new THREE.Vector3());
         obj.position.sub(center);
@@ -57,19 +67,39 @@ function Load3dComponent() {
       (error) => console.error("An error happened", error)
     );
 
+    // --- BEST PRACTICE: Handle Window Resize ---
+    const handleResize = () => {
+      if (!mountRef.current) return;
+      // Update camera aspect ratio
+      camera.aspect =
+        mountRef.current.clientWidth / mountRef.current.clientHeight;
+      camera.updateProjectionMatrix();
+      // Update renderer size
+      renderer.setSize(
+        mountRef.current.clientWidth,
+        mountRef.current.clientHeight
+      );
+    };
+
+    window.addEventListener("resize", handleResize);
+
     // Animate
     const animate = () => {
       requestAnimationFrame(animate);
-      controls.update(); // update kontrol (auto rotate)
+      controls.update();
       renderer.render(scene, camera);
     };
     animate();
 
-    // Cleanup
+    // Cleanup function
     return () => {
-      currentMount.removeChild(renderer.domElement);
+      window.removeEventListener("resize", handleResize);
+      // Check if currentMount exists before trying to remove a child from it
+      if (currentMount) {
+        currentMount.removeChild(renderer.domElement);
+      }
     };
-  }, []);
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   return (
     <div

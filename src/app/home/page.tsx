@@ -7,6 +7,11 @@ import SfxComponent from "@/component/sfxComponent";
 import SpotifySongList from "@/component/spotifySongList";
 import { useState, useEffect } from "react";
 import { SocialIcon } from "react-social-icons";
+interface HoverSocialIconProps {
+  network: string;
+  url: string;
+  color: string;
+}
 
 export default function HomePage() {
   const [typedText, setTypedText] = useState("");
@@ -109,8 +114,7 @@ export default function HomePage() {
   );
 }
 
-// Komponen terpisah untuk efek hover
-function HoverSocialIcon({ network, url, color }) {
+function HoverSocialIcon({ network, url, color }: HoverSocialIconProps) {
   const [hovered, setHovered] = useState(false);
 
   return (

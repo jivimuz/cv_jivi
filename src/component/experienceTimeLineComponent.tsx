@@ -40,30 +40,6 @@ export default function ExperienceTimeline() {
       desc: "Responsible for office hardware, software and apps management.",
       icon: "🕖",
     },
-    {
-      date: "2021 — 2024",
-      title: "Fullstack Developer",
-      company: "Startup X",
-      location: "Indonesia (Remote)",
-      desc: "Built core product and CI/CD pipelines.",
-      icon: "🕔",
-    },
-    {
-      date: "2021 — 2024",
-      title: "Fullstack Developer",
-      company: "Startup X",
-      location: "Indonesia (Remote)",
-      desc: "Built core product and CI/CD pipelines.",
-      icon: "🕠",
-    },
-    {
-      date: "2021 — 2024",
-      title: "Fullstack Developer",
-      company: "Startup X",
-      location: "Indonesia (Remote)",
-      desc: "Built core product and CI/CD pipelines.",
-      icon: "🕑",
-    },
   ];
   // items = [{ date: '2021 - 2023', title: 'Senior Dev', company: 'ACME', desc: '...', icon: '💼' }, ...]
   return (
@@ -94,22 +70,6 @@ export default function ExperienceTimeline() {
               </div>
               <h3 className="title">{it.title}</h3>
               <p className="desc">{it.desc}</p>
-              {it.more && (
-                <button
-                  className="more-btn"
-                  aria-expanded="false"
-                  onClick={(e) => {
-                    const btn = e.currentTarget;
-                    const expanded =
-                      btn.getAttribute("aria-expanded") === "true";
-                    btn.setAttribute("aria-expanded", (!expanded).toString());
-                    btn.previousElementSibling.classList.toggle("expanded");
-                  }}
-                >
-                  {it.moreLabel || "More"}
-                </button>
-              )}
-              {it.more && <div className="more">{it.more}</div>}
             </div>
           </article>
         ))}

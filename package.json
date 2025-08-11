@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev -p 8000",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -21,6 +22,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.179.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

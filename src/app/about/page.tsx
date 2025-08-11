@@ -35,6 +35,21 @@ export default function AboutPage() {
     return () => clearTimeout(timeout);
   }, [currentIndex]);
 
+  const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hitung rotasi berdasarkan posisi scroll vertikal
+      // Misal rotasi = scrollY dibagi 5 supaya gerakannya lebih halus
+      const rot = window.scrollY / 5;
+      setRotation(rot);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div>
       <div className="page-nav">
@@ -66,7 +81,10 @@ export default function AboutPage() {
           <img
             src="/assets/img/jivi.jpg"
             alt="Jivi"
-            className="w-[250px] rounded-[20px]"
+            className="w-[250px] rounded-[20px] transition-transform duration-200"
+            style={{
+              transform: `rotate(${rotation}deg)`,
+            }}
           />
         </div>
         <div className="w-full md:w-1/2 p-4 flex items-center justify-center">
