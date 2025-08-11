@@ -12,7 +12,7 @@
   --btn-hover-bg: #ffffff;
   --btn-hover-shadow: rgba(0, 0, 0, 0.1);
   --icon-stroke: #171717;
-  --main-bg: url("../assets/bg-2.jpg");
+  --main-bg: url("/assets/img/bg-2.jpg");
 }
 
 html.dark {
@@ -26,7 +26,7 @@ html.dark {
   --btn-hover-bg: #4b5563; /* Abu-abu lebih terang */
   --btn-hover-shadow: rgba(0, 0, 0, 0.3);
   --icon-stroke: #f3f4f6;
-  --main-bg: url("../assets/bg-1.jpg");
+  --main-bg: url("/assets/img/bg-1.jpg");
 }
 html {
   cursor: url(https://cur.cursors-4u.net/cursors/cur-11/cur1020.ani),
