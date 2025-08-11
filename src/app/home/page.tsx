@@ -103,7 +103,7 @@ export default function HomePage() {
         </div>
         <hr
           className="shadow"
-          style={{ marginTop: "50px", marginBottom: "10px" }}
+          style={{ marginTop: "200px", marginBottom: "10px" }}
         />
         <hr className="shadow" />
         <hr className="shadow" />
