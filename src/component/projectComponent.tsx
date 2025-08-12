@@ -74,6 +74,12 @@ export default function ProjectList() {
       techstack: ["Python", "Pandas", "NumPy", "Matplotlib"],
       imageUrl: "/assets/img/projects/pj-10.jpg",
     },
+    {
+      name: "More?",
+      description: "You can dm me.",
+      techstack: ["Many more"],
+      imageUrl: "/assets/img/projects/pj-11.jpg",
+    },
   ];
 
   return (
@@ -83,7 +89,17 @@ export default function ProjectList() {
           key={id.name}
           className="project-card p-4 border rounded-lg shadow-md animate-on-scroll"
         >
-          <img src={id.imageUrl} alt="Project" width={500} height={300} />
+          <div
+            style={{
+              width: "100%",
+              minWidth: "320px",
+              height: "200px",
+              backgroundImage: `url(${id.imageUrl})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
 
           <h2 className="text-lg font-bold mb-2">{id.name}</h2>
           <p className="text-sm mb-3">{id.description}</p>

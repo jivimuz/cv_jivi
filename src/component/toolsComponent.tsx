@@ -160,15 +160,15 @@ export default function TechList() {
     <div className=" py-5">
       <Swiper
         modules={[Autoplay]}
-        slidesPerView={4}
-        spaceBetween={15}
+        slidesPerView={5}
+        spaceBetween={5}
         autoplay={{ delay: 0, disableOnInteraction: false }}
-        speed={3000}
+        speed={2000}
         loop={true}
         className="flex items-center"
         breakpoints={{
-          320: { slidesPerView: 2 },
-          640: { slidesPerView: 3 },
+          320: { slidesPerView: 4 },
+          640: { slidesPerView: 5 },
           1024: { slidesPerView: 5 },
         }}
       >

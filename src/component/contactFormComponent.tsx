@@ -21,14 +21,14 @@ export default function ContactFormComponent() {
 
     if (!name || !email || !message) {
       setStatus("error");
-      setResponseMessage("Semua kolom wajib diisi.");
+      setResponseMessage("Please fill all column.");
       return;
     }
 
     // Validasi tambahan untuk memastikan endpoint tidak kosong
     if (!formspreeEndpoint) {
       setStatus("error");
-      setResponseMessage("Konfigurasi endpoint email tidak ditemukan.");
+      setResponseMessage("Error, pls try again later.");
       console.error("Error: EMAIL_BACKEND_ENDPOINT is not set.");
       return;
     }
@@ -53,7 +53,7 @@ export default function ContactFormComponent() {
 
       if (response.ok) {
         setStatus("success");
-        setResponseMessage("Pesan Anda berhasil terkirim! Terima kasih.");
+        setResponseMessage("Sending message success, thank you.");
         setName("");
         setEmail("");
         setMessage("");
@@ -62,12 +62,12 @@ export default function ContactFormComponent() {
         setStatus("error");
         setResponseMessage(
           errorData.errors?.map((err: any) => err.message).join(", ") ||
-            "Gagal mengirim email."
+            "Sending email failed."
         );
       }
     } catch (error) {
       setStatus("error");
-      setResponseMessage("Terjadi kesalahan. Silakan coba lagi nanti.");
+      setResponseMessage("Failed send. Pls try again later.");
     }
   };
 
@@ -140,7 +140,7 @@ export default function ContactFormComponent() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="btn mx-auto bg-bubble text-secondary"
+          className="btn mx-auto bg-bubble text-secondary link"
         >
           <svg
             width="20"

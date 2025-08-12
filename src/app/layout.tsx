@@ -5,6 +5,7 @@ import NavbarComponent from "../component/navbarComponent";
 import { ThemeProvider } from "next-themes";
 import Footer from "@/component/footerComponent";
 import { initScrollAnimations } from "@/func/initScrollAnimations";
+import FloatChat from "@/component/floatChat.Component";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
           <link rel="icon" href="/favicon.ico" type="image/png" />
           <NavbarComponent />
           <div style={{ margin: "20px" }}>{children}</div>
+          <FloatChat />
           <Footer />
         </ThemeProvider>
       </body>

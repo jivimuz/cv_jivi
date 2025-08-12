@@ -46,10 +46,10 @@ function Load3dComponent() {
     controls.enablePan = false;
     controls.minDistance = 1.8;
     controls.maxDistance = 2.0;
-    controls.minPolarAngle = Math.PI / 2;
+    controls.minPolarAngle = Math.PI / 4;
     controls.maxPolarAngle = Math.PI / 2;
     controls.autoRotate = true;
-    controls.autoRotateSpeed = 1;
+    controls.autoRotateSpeed = 5;
     controls.target.set(0, 0, 0);
 
     // Load OBJ

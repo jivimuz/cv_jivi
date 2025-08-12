@@ -49,9 +49,16 @@ export default function Footer() {
             />
           </div>
         </div>
-
+        <div
+          style={{ fontSize: "10px" }}
+          className="text-center mt-4 text-gray-500 "
+        >
+          This tech stack using NextJS + ThreeJS + TailwindCSS by Jivi Muzaqi
+          Guntur
+        </div>
         {/* Copyright */}
-        <div className="text-center mt-4 text-gray-500 text-xs">
+
+        <div className="text-center mt-1 text-gray-500 text-xs">
           © {new Date().getFullYear()} Jivi Muzaqi Guntur. All rights reserved.
         </div>
       </footer>
