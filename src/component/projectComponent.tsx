@@ -81,15 +81,10 @@ export default function ProjectList() {
       {projectList.map((id) => (
         <div
           key={id.name}
-          className="project-card p-4 border rounded-lg shadow-md"
+          className="project-card p-4 border rounded-lg shadow-md animate-on-scroll"
         >
-          <Image
-            width={320}
-            height={200}
-            alt={id.name}
-            src={id.imageUrl}
-            className="w-full h-32 object-cover mb-4 rounded"
-          />
+          <img src={id.imageUrl} alt="Project" width={500} height={300} />
+
           <h2 className="text-lg font-bold mb-2">{id.name}</h2>
           <p className="text-sm mb-3">{id.description}</p>
           <div className="flex flex-wrap gap-2">

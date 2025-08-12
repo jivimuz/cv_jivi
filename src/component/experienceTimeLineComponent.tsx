@@ -50,10 +50,10 @@ export default function ExperienceTimeline() {
             key={idx}
             className={`timeline-item ${idx % 2 === 0 ? "left" : "right"}`}
           >
-            <div className="marker" aria-hidden>
+            <div className="marker animate-on-scroll" aria-hidden>
               <span className="marker-icon">{it.icon || "●"}</span>
             </div>
-            <div className="card">
+            <div className="card animate-on-scroll">
               <div className="meta">
                 <time
                   className="date"

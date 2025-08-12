@@ -1,8 +1,13 @@
 "use client";
+import { useEffect } from "react";
 import { ThemeSwitcher } from "./themeSwitcherComponent";
 import { usePathname } from "next/navigation";
+import { initScrollAnimations } from "@/func/initScrollAnimations";
 
 const NavbarComponent = () => {
+  useEffect(() => {
+    initScrollAnimations();
+  }, []);
   const pathname = usePathname();
   return (
     <>

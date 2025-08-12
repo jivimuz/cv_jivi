@@ -103,9 +103,16 @@ export default function AboutPage() {
       >
         Career Experience
       </h1>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-4 ">
         <ExperienceTimeline />
       </div>
+      <h1
+        className="text-2xl font-bold mb-4 m-4 animate-on-scroll"
+        style={{ textAlign: "center", color: "#0f172a" }}
+      >
+        Playlist
+      </h1>
+      <SpotifySongList />
     </div>
   );
 }

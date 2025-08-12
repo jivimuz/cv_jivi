@@ -4,7 +4,7 @@
 :root {
   /* Tema Terang (Light Mode) - Default */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000;
   --page-bg: #e5e7eb; /* Abu-abu terang */
   --bubble-bg: rgba(255, 255, 255, 0.4);
   --bubble-border: rgba(255, 255, 255, 0.5);
@@ -17,7 +17,7 @@
 
 html.dark {
   /* Tema Gelap (Dark Mode) - Warna Terbalik */
-  --background: #171717;
+  --background: #000;
   --foreground: #f3f4f6; /* Putih keabuan */
   --page-bg: #111827; /* Biru sangat gelap */
   --bubble-bg: rgba(31, 41, 55, 0.4); /* Abu-abu transparan */
@@ -557,4 +557,46 @@ hr .melt {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2px solid transparent;
+}
+
+.sliderIcon {
+  width: 80px;
+  height: 80px;
+}
+@media (max-width: 780px) {
+  .sliderIcon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.bg-primary {
+  background-color: var(--foreground);
+}
+.bg-secondary {
+  background-color: var(--background);
+}
+
+.text-primary {
+  color: var(--foreground);
+}
+.text-secondary {
+  color: var(--background);
+}
+
+/* Awal: posisi geser dan transparan */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+/* Saat muncul di layar */
+.show-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bg-bubble {
+  background-color: var(--bubble-bg);
 }

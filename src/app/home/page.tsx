@@ -1,10 +1,11 @@
 "use client";
 
+import ContactFormComponent from "@/component/contactFormComponent";
 import { ExperienceCount } from "@/component/experienceCount";
-import ExperienceTimeline from "@/component/experienceTimeLineComponent";
 import Load3dComponent from "@/component/load3dComponent";
+import { MapComponent } from "@/component/mapComponent";
 import SfxComponent from "@/component/sfxComponent";
-import SpotifySongList from "@/component/spotifySongList";
+import TechList from "@/component/toolsComponent";
 import { useState, useEffect } from "react";
 import { SocialIcon } from "react-social-icons";
 interface HoverSocialIconProps {
@@ -105,10 +106,19 @@ export default function HomePage() {
           className="shadow"
           style={{ marginTop: "200px", marginBottom: "10px" }}
         />
+        <TechList />
         <hr className="shadow" />
         <hr className="shadow" />
         <hr className="shadow" />
-        <SpotifySongList />
+
+        <div className="flex flex-col md:flex-row  ">
+          <div className="flex col w-full md:w-1/2">
+            <MapComponent />
+          </div>
+          <div className="flex col w-full md:w-1/2">
+            <ContactFormComponent />
+          </div>
+        </div>
       </div>
     </>
   );
