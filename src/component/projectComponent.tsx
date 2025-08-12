@@ -92,7 +92,7 @@ export default function ProjectList() {
           <div
             style={{
               width: "100%",
-              minWidth: "320px",
+              minWidth: "270px",
               height: "200px",
               backgroundImage: `url(${id.imageUrl})`,
               backgroundRepeat: "no-repeat",
