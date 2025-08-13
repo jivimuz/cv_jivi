@@ -3,7 +3,7 @@
 import { useState, FormEvent, useEffect } from "react";
 
 export default function FloatChat() {
-  const phoneNumber = "682120741970";
+  const phoneNumber = "6282120741970";
   const defaultMessage = "Hello";
   const defaultMessage2 = "Do you need any assistance?";
 
