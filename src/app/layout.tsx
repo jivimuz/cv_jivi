@@ -4,7 +4,6 @@ import "./globals.css";
 import NavbarComponent from "../component/navbarComponent";
 import { ThemeProvider } from "next-themes";
 import Footer from "@/component/footerComponent";
-import { initScrollAnimations } from "@/func/initScrollAnimations";
 import FloatChat from "@/component/floatChat.Component";
 
 const geistSans = Geist({

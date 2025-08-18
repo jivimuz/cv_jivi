@@ -4,6 +4,7 @@ import ContactFormComponent from "@/component/contactFormComponent";
 import { ExperienceCount } from "@/component/experienceCount";
 import Load3dComponent from "@/component/load3dComponent";
 import { MapComponent } from "@/component/mapComponent";
+import ProductComponent from "@/component/productComponent";
 import SfxComponent from "@/component/sfxComponent";
 import TechList from "@/component/toolsComponent";
 import { useState, useEffect } from "react";
@@ -110,7 +111,9 @@ export default function HomePage() {
         <hr className="shadow" />
         <hr className="shadow" />
         <hr className="shadow" />
-
+        <ProductComponent />
+        <br />
+        <br />
         <div className="flex flex-col md:flex-row  ">
           <div className="flex col w-full md:w-1/2">
             <MapComponent />

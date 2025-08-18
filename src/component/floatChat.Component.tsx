@@ -52,13 +52,10 @@ export default function FloatChat() {
           {/* Header Chat */}
           <div className="header bg-primary text-white p-3 rounded-t-lg flex justify-between items-center">
             {/* <h3 className="font-bold text-secondary">Hubungi Kami</h3> */}
-            <div className="flex flex-col md:flex-row  ">
+            <div className="flex flex-col flex-row  ">
               <div className="flex col ">
                 <div className="avatar">
-                  <img
-                    src="https://scontent.fbth9-1.fna.fbcdn.net/v/t39.30808-6/438224291_3939008853086051_5089158388925387689_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFSyDme7rxJYE_HbtPrcgdKsgtyFPcQLK6yC3IU9xAsrlUgX2GsgnkTFSS8xQwp0quQXMJeanBvuWh9dx7fIJ5Z&_nc_ohc=Wbb2NmxNsikQ7kNvwGFrXy5&_nc_oc=AdlNeVkT8PtqKYdjk9aYkT8twZ0cyBBrGpAKFzoaumos1BR5PDLBGOC1_0qtKbEyOorWZti6IO3R68xH0i2asGqE&_nc_zt=23&_nc_ht=scontent.fbth9-1.fna&_nc_gid=BUqNCr_xVTtIvCe7A2Np6g&oh=00_AfWEDqfro7JsDSoxWB0TdI9qk-BcPzNMEdqyz7O8s6EZlQ&oe=68A0F9EA"
-                    alt="Avatar"
-                  />
+                  <img src="/assets/img/ppjv.jpg" alt="Avatar" />
                 </div>
               </div>
               <div className="flex col avatar-name text-secondary">Jivi</div>
@@ -136,7 +133,7 @@ export default function FloatChat() {
                 value={userMessage}
                 onChange={(e) => setUserMessage(e.target.value)}
                 placeholder="Write your message..."
-                className="flex-grow text-secondary p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="flex-grow text-primary bg-secondary p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 autoFocus
               />
               <button
@@ -213,6 +210,11 @@ export default function FloatChat() {
           </svg>
         )}
       </button>
+      {isOpen ? (
+        <style>{`.page-btn { display: none !important; }`}</style>
+      ) : (
+        <style>{`.page-btn { display: flex !important; }`}</style>
+      )}
     </>
   );
 }
